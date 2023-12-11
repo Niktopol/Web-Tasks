@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Авторизация</title>
+        <link rel="icon" type="image/svg+xml" href = "logo.svg">
+        <link rel="stylesheet" href = "authstyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <div id="window">
+                <form method="post" dis>
+                    <h1>Авторизация</h1>
+                    <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Почта">
+                    <input type="password" required placeholder="Пароль">
+                    <input type="submit">
+                    <span>Нет аккаунта?<a href="NONE">Зарегестрироваться</a><br>Забыли пароль?<a href="NONE">Восстановить</a></span>
+                </form>
+                <div id="capchaForm">
+                    <span id="capchaAsk"></span>
+                    <div id="captcha">
+                        <label for="captchaInput">Введите буквы: </label>
+                        <input type="text" id="captchaInput" placeholder="Введите буквы..." required>
+                    </div>
+                    <button type="button">Проверить</button>
+                </div>
+            </div>
+            <span class="mvrect"></span>
+            <span class="mvrect"></span>
+            <span class="mvrect"></span>
+            <span class="mvrect"></span>
+            <span class="mvrect"></span>
+        </main>
+    <script>
+        let rects = document.getElementsByClassName("mvrect");
+        let rect1 = [0, 0];
+        let rect2 = [0, 0];
+        let rect3 = [0, 0];
+        let rect4 = [0, 0];
+        let rect5 = [0, 0];
+        function moveRects(){
+            rect1[0] = (rect1[0] + (Math.random()*2)-1)%5;
+            rect1[1] = (rect1[1] + (Math.random()*2)-1)%5;
+            rect2[0] = (Math.random()*1);
+            rect2[1] = (Math.random()*1);
+            rect3[0] = (rect3[0] + (Math.random()*2)-1)%5;
+            rect3[1] = (rect3[1] + (Math.random()*2)-1)%5;
+            rect4[0] = (rect4[0] + (Math.random()*2)-1)%4;
+            rect4[1] = (rect4[1] + (Math.random()*2)-1)%4;
+            rect5[0] = (rect5[0] + (Math.random()*2)-1)%5;
+            rect5[1] = (rect5[1] + (Math.random()*2)-1)%5;
+            rects[0].style.transform = "translate("+rect1[0]+"em,"+rect1[1]+"em)";
+            rects[1].style.transform = "translate("+rect2[0]+"em,"+rect2[1]+"em)";
+            rects[2].style.transform = "translate("+rect3[0]+"em,"+rect3[1]+"em)";
+            rects[3].style.transform = "translate("+rect4[0]+"em,"+rect4[1]+"em)";
+            rects[4].style.transform = "translate("+rect5[0]+"em,"+rect5[1]+"em)";
+        };
+        setInterval(moveRects, 8000);
+
+        function generateRandomLetters(length){
+            let result = ""
+            const dict = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            for(let i = 0; i < length; i++) {
+                result += dict.charAt(Math.floor(Math.random() * dict.length))
+            }
+            return result;
+        };
+        function generateRandomSum(){
+            const num1 = Math.floor(Math.random()*20);
+            const num2 = Math.floor(Math.random()*20);
+            const question = `Сколько будет ${num1} + ${num2}?`;
+            return { question, answer: num1 + num2 };
+        };
+        window.onload = function (){
+            let ask = document.querySelector("#capchaAsk");
+            ask.textContent = generateRandomLetters(6);
+            let f = document.querySelectorAll("form input").forEach(element => {
+                element.disabled = true;
+            });
+        };
+        let randomSumAnswer;
+        let failed = false;
+        const btn = document.querySelector("button");
+        function checkCaptcha(){
+            let captchaInput = document.querySelector('#captchaInput');
+            let ask = document.querySelector("#capchaAsk");
+            let captchaLabel = document.querySelector('#captcha label');
+            if(!failed) {
+                if(!captchaInput.value.trim()) {
+                    alert("Вы ничего не ввели. Попробуйте еще раз.")
+                    return;
+                }
+                if(captchaInput.value !== ask.textContent) {
+                    failed = true;
+                    const obj = generateRandomSum();
+                    randomSumAnswer = obj.answer;
+                    ask.textContent = obj.question;
+                    captchaLabel.textContent = "Введите сумму: ";
+                    captchaInput.placeholder = "Введите сумму...";
+                    captchaInput.value = "";
+                } else {
+                    alert("Проверка прошла успешно!");
+                    let f = document.querySelectorAll("form input").forEach(element => {
+                        element.disabled = false;
+                    });
+                    captchaInput.disabled = true;
+                    btn.disabled = true;
+                }
+            } else {
+                if(!captchaInput.value.trim()) {
+                    alert("Вы ничего не ввели. Попробуйте еще раз.")
+                    return;
+                }
+                if(+captchaInput.value !== randomSumAnswer) {
+                    alert("Неверный ответ! Попробуйте еще раз.");
+                    const obj = generateRandomSum();
+                    randomSumAnswer = obj.answer;
+                    ask.textContent = obj.question;
+                    captchaInput.value = "";
+                } else {
+                    alert("Проверка прошла успешно!");
+                    let f = document.querySelectorAll("form input").forEach(element => {
+                        element.disabled = false;
+                    });
+                    captchaInput.disabled = true;
+                    btn.disabled = true;
+                }
+            }
+        };
+        btn.addEventListener('click', () => checkCaptcha());
+        /*
+        window.onload = function (){
+            let agreed = false;
+            while(!agreed){
+                agreed = prompt("Желаете пройти регистрацию?") === "Да";
+                if(!agreed){
+                    alert("Попробуйте ещё раз")
+                }
+            };
+            alert("Круто!")
+            let login = prompt("Введите логин");
+            if(login === "Админ"){
+                login = prompt("Ведите пароль")
+                if(login === "Я главный"){
+                    alert("Здравствуйте!")
+                }else if (login === null || login === ""){
+                    alert("Отменено");
+                }else{
+                    alert("Неверный пароль");
+                }
+            }else if (login === null || login === ""){
+                alert("Отменено");
+            }else{
+                alert("Я вас не знаю");
+            }
+        };*/
+    </script>
+    </body>
+
+    </html>

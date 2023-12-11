@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a:visited{
+    color: black;
+}
+h1, h2, h3{
+    font-family: 'Oswald', sans-serif;
+}
+header{
+    height: 200px;
+    width: 100%;
+    background-color: orange;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+header h1{
+    text-align: center;
+    margin-top: 1vh;
+    user-select: none;
+}
+header h1:active{
+    letter-spacing: 3px;
+    transition: 0.1s;
+}
+nav{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+nav *{
+    display: inline-block;
+    vertical-align: middle;
+}
+nav a{
+    padding: 5px;
+    text-decoration: none;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+section{
+    padding: 10px 50px;
+}
+article{
+    width: 95%;
+    padding: 10px 20px;
+    margin: 0 auto;
+    border-bottom: 2px dashed #dadce0;
+}
+article > *{
+    display: inline-block;
+}
+article div{
+    width: 70%;
+}
+aside{
+    width: 20%;
+    outline: 2px dotted #dadce0;
+    height: 100%;
+    vertical-align: top;
+}
+main{
+    padding: 30px;
+}
+footer{
+    color: white;
+    background-color: black;
+}
+dd:nth-child(odd){
+    background-color:aquamarine;
+}

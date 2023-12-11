@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forms</title>
+    </head>
+    <body>
+    <form method="post">
+        <fieldset id = "info">
+            <legend>Введите всю информацию о себе</legend>
+                <label>
+                    Адрес
+                    <input type = "text" name = "text" id = "text" placeholder="Ваш адрес" required>
+                </label>
+                <label>
+                    Телефон
+                    <input type = "tel" name = "tel" id = "tel" pattern="^\+[0-9]{10,11}$" placeholder="Ваш номер телефона" required>
+                </label>
+                <label>
+                    E-mail
+                    <input type = "email" name = "email" id = "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Ваша почта" required>
+                </label>
+                <label>
+                    Пароль
+                    <input type = "password" name = "password" id = "password" placeholder="Пароль" required>
+                </label>
+                <label>
+                    Электронный чек
+                    <input type = "file" name = "file" id = "file">
+                </label>
+                <label>
+                    Дата доставки
+                    <input type = "datetime-local" name = "datetime-local" id = "datetime-local">
+                </label>
+                <label>
+                    Цена
+                    <input type = "number" name = "number" required min="1" max="99999" id = "number">
+                </label>
+                <label>
+                    Город
+                    <select name = "select" id="select">
+                        <option>Москва</option>
+                        <option>Санкт-Петербург</option>
+                        <option>Казань</option>
+                    </select>
+                </label>
+                <label>
+                    Время доставки
+                    <select name = "select" id="select" multiple required>
+                        <option>12:00</option>
+                        <option>15:00</option>
+                        <option>17:00</option>
+                    </select>
+                </label>
+                <input type = "submit" name = "submit" id = "submit">
+            </fieldset>
+            <fieldset id = "additional">
+                <legend>Дополнительный товар</legend>
+                    <label>
+                        Ещё один
+                        <input type = "checkbox" name = "one" id = "one" checked>
+                    </label>
+                    <label>
+                        Ещё два
+                        <input type = "checkbox" name = "two" id = "two" checked>
+                    </label>
+                    <label>
+                        Ещё три
+                        <input type = "checkbox" name = "three" id = "three" checked>
+                    </label>
+                    <label>
+                        Ещё четыре
+                        <input type = "checkbox" name = "four" id = "four" checked>
+                    </label>
+                    <label>
+                        Ещё пять
+                        <input type = "checkbox" name = "five" id = "five" checked>
+                    </label>
+            </fieldset>
+            <fieldset id = "delivery">
+                <legend>Способ доставки</legend>
+                    <label>
+                        Самовывоз
+                        <input type = "radio" name = "delivtp" id = "self" checked>
+                    </label>
+                    <label>
+                        Доставка по адресу
+                        <input type = "radio" name = "delivtp" id = "deliv">
+                    </label>
+            </fieldset>
+            <fieldset id = "buttons">
+                <legend>Просто кнопки</legend>
+                    <button class="btn" type="button">1</button>
+                    <button class="btn" type="button">2</button>
+                    <button class="btn" type="button">3</button>
+                    <button class="btn" type="button">4</button>
+                    <button class="btn" type="button">5</button>
+                    <button class="btn" type="button">6</button>
+                    <button class="btn" type="button">7</button>
+                    <button class="btn" type="button">8</button>
+                    <button class="btn" type="button">9</button>
+            </fieldset>
+            <fieldset id = "description">
+                <legend>Дополнительная информация для доставки</legend>
+                <textarea placeholder="Краткие подробности о месте доставки" cols="100" rows="5" maxlength="300" minlength="5" required></textarea>
+            </fieldset>
+    </form>
+    <div id="frames">
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21360.698406240048!2d37.635580787329125!3d55.753868301715784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1696163370559!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/K74l26pE4YA?si=tqZvVK2TII3IJKk_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    <style>
+        form{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        form label{
+            margin: 3px 0;
+            padding: 3px;
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-bottom-left-radius: 5px;
+        }
+        form *::placeholder{
+            font-style: italic;
+            letter-spacing: 0.08em;
+        }
+        fieldset{
+            margin: 10px;
+            padding: 10px;
+        }
+        #info{
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+        }
+        #info *:focus{
+            transition: 0.1s;
+            margin-left: 3px;
+        }
+        #info *{
+            width: fit-content;
+            padding: 2px;
+        }
+        #additional{
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+        }
+        #additional *{
+            margin: auto 0;
+        }
+        #delivery{
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+        }
+        #delivery *{
+            margin: auto 0;
+        }
+        #buttons{
+            flex-wrap: wrap;
+            width: 200px;
+        }
+        .btn{
+            width: 30%;
+            background-color: antiquewhite;
+            font-weight: bold;
+        }
+        #frames{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    </body>
+
+    </html>

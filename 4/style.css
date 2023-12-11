@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a:visited{
+    color: black;
+}
+header{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+nav{
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    width: 80%;
+    height: 60px;
+    background-color: white;
+    box-shadow: 3px 3px 15px #00000026;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 0 10px;
+    box-sizing: content-box;
+    outline: white dashed 3px;
+    z-index: 1;
+}
+.logo{
+    padding: 10px;
+    height: 100%;
+}
+.logo span{
+    text-decoration: underline overline 2px orange;
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+nav div{
+    display: flex;
+    align-items: center;
+}
+nav figure{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 2px solid black;
+    padding: 0 20px;
+    margin-left: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.1s;
+    color: black;
+}
+nav figure:hover{
+    background-color: #00000026;
+    padding: 5px 20px;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav figure img{
+    height: 24px;
+}
+section{
+    padding: 10px 50px;
+}
+article{
+    width: 95%;
+    padding: 10px 20px;
+    margin: 0 auto;
+    border-bottom: 2px dashed #dadce0;
+    position: relative;
+}
+aside{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 20%;
+    outline: 2px dotted #dadce0;
+    vertical-align: top;
+}
+main{
+    padding: 30px;
+}
+.sofas{
+    display: flex;
+    width: 100%;
+    padding: 50px 0;
+    justify-content: space-around;
+}
+.sofas img{
+    width: 20%;
+    box-shadow: 3px 3px 15px #0000001f;
+    position: relative;
+    transition: 0.5s;
+}
+.sofas img:nth-child(odd){
+    top:10px;
+}
+.sofas img:nth-child(even){
+    top:-10px;
+}
+.sofas img:nth-child(odd):hover{
+    top:20px;
+}
+.sofas img:nth-child(even):hover{
+    top:-20px;
+}
+footer{
+    color: white;
+    background-color: black;
+}
+dd:nth-child(odd){
+    background-color:aquamarine;
+}

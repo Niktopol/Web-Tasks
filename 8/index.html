@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Страница #100</title>
+        <link rel="icon" type="image/svg+xml" href = "logo.svg">
+        <link rel="stylesheet" href = "style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="logo">
+                    <span><i>Furr</i>niture</span>
+                    <img src = "logo.svg">
+                </div>
+                <div id="nmiddle">
+                    <input type="checkbox" id="menutoggle">
+                    <label for="menutoggle" id="menubtn">
+                        <div id="burger">
+                            <div class="stick"></div>
+                            <div class="stick"></div>
+                            <div class="stick"></div>
+                            <div class="stick"></div>
+                        </div><span>Каталог</span>
+                    </label>
+                    <div id = "menu">
+                        <div>
+                            <ul>
+                                <li>Кресла</li>
+                                <li>Диваны</li>
+                                <li>Кровати и матрасы</li>
+                                <li>Стулья</li>
+                                <li>Мягкие игрушки</li>
+                            </ul>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <input type="text">
+                        <img src="images/search.svg">
+                    </div>
+                </div>
+                <div id = "links">
+                    <a href="NOT READY">
+                        <figure>
+                            <img src="images/heart.svg">
+                            <figcaption>Избранное</figcaption>
+                        </figure>
+                    </a>
+                    <a href="NOT READY"> 
+                        <figure>
+                            <img src="images/cart.svg">
+                            <figcaption>Корзина</figcaption>
+                        </figure>
+                    </a>
+                    <a href="auth.html"> 
+                        <figure>
+                            <img src="images/login.svg">
+                            <figcaption>Войти</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </nav>
+            <div id="vidwrapper">
+                <div id="vidgrad"></div>
+                <video src="images/abient.mp4" type="video/mp4" autoplay muted loop>
+            </div>
+        </header>
+        <div id = "notifications">
+            <div><img src = "images/bell.svg"></div>
+            <div>
+                <ol>
+                    <li>Notification one</li>
+                    <li>Notification two</li>
+                    <li>Notification three</li>
+                </ol>
+            </div>
+        </div>
+        <div id="orderform">
+            <span></span>
+            <form method="post">
+                <h1>Заказ</h1>
+                <div class="filler">
+                    <input type="text" required name = "order" id="name">
+                    <label for="name">Имя</label>
+                </div>
+                <div class="filler">
+                    <input type="text" required name = "order" id="surname">
+                    <label for="surname">Фамилия</label>
+                </div>
+                <div class="filler">
+                    <input type="text" required name = "order" id="mail">
+                    <label for="mail">Почта</label>
+                </div>
+                <div class="filler">
+                    <input type="text" required name = "order" id="phone">
+                    <label for="phone">Телефон</label>
+                </div>
+                <span onclick="toggleordform()"></span>
+                <input type="submit">                
+            </form>
+        </div>
+        <main>
+            <div id="blurcards">
+                <div class="blcard">
+                    <span>Починка мебели</span>
+                    <p>У нас вы можете починить свою мебель быстро и недорого!</p>
+                    <button>Подробнее</button>
+                </div>
+                <div class="blcard">
+                    <span>Планировка комнаты</span>
+                    <p>Воспользуйтесь нашими услугами по планировке расстановки мебели.</p>
+                    <button>Подробнее</button>
+                </div>
+                <div class="blcard">
+                    <span>Аренда мебели</span>
+                    <p>Привезём ваш заказ в течение часа.</p>
+                    <button onclick="toggleordform()">Подробнее</button>
+                </div>
+                <div id="cov"></div>
+            </div>
+            <div id="ads">
+                <h1>Акции</h1>
+                <div class="ad"><span>Комфортно</span><img src="images/adchair.jpg"></div>
+                <div class="ad"><span>Скидки на хороший сон</span><img src="images/admat.jpg"></div>
+                <div class="ad"><span>Ещё мягче</span><img src="images/adpill.jpg"></div>
+                <div class="ad"><span>Почувствуйте теплоту</span><img src="images/adtoy.jpg"></div>
+            </div>
+            <div id="popular">
+                <h1>Популярные товары</h1>
+                <figure>
+                    <img src="images/gall10.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall11.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall2.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall3.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall4.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall5.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall6.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gall7.jpg">
+                    <figcaption>
+                        <h2>9999 ₽</h2>
+                        <p>Text text text text text text text text text text text text text text text text text text text text text</p>
+                        <button>В корзину</button>
+                    </figcaption>
+                </figure>
+            </div>
+    </main>
+    <div style="display: flex; flex-basis: 100%; justify-content: center;">
+        <div id="gridtest">
+            <div><img src="images/html5.jpg"></div>
+            <div><img src="images/css3.jpg"></div>
+            <div><img src="images/js.jpg"></div>
+            <div><img src="images/nodejs.jpg"></div>
+            <div><img src="images/reactjs.jpg"></div>
+            <div><img src="images/vuejs.jpg"></div>
+            <div><img src="images/angularjs.jpg"></div>
+            <div><img src="images/mongodb.jpg"></div>
+        </div>
+    </div>
+    <footer>
+        <span>Сайт разработал Ермаков К.Р. из группы ИКБО-16-22</span>
+        <div id="about">
+            <h2>О нас</h2>
+            <p>Text text text text text text text text text text text text text text text text text text text text text text text text text</p>
+            <a href ="NONE" class="soc"><img src="images/youtube.svg"></a>
+            <a href ="NONE" class="soc"><img src="images/vk.svg"></a>
+            <a href ="NONE" class="soc"><img src="images/telegram.svg"></a>
+        </div>
+        <div id="infolinks">
+            <h2>Полезные ссылки</h2>
+            <a href="NONE">Наши офисы</a>
+            <a href="NONE">Контакты</a>
+            <a href="NONE">FAQ</a>
+            <a href="NONE">Партнёрство</a>
+            <a href="NONE">Трудоустройство</a>
+            <a href="NONE">Условия пользования</a>
+        </div>
+        <address>
+            <h2>Связь с нами</h2>
+            <a href="tel:89999999999">По телефону: 89628096933</a>
+            <a href="mailto:sendemail@gmail.com">По e-mail: sendemail@gmail.com</a>
+        </address>
+    </footer>
+    <script src="javascript.js"></script>
+    </body>
+    </html>

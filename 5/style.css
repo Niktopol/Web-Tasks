@@ -1,0 +1,312 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body > *{
+    width: 80%;
+    padding: 0 10%;
+}
+a:visited{
+    color: black;
+}
+header{
+    padding-top: 70px;
+    display: flex;
+    background-color: orange;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    font-family: 'Oswald', sans-serif;
+}
+nav{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 80%;
+    min-height: 60px;
+    background-color: white;
+    box-shadow: 3px 3px 15px #00000026;
+    padding: 5px 10%;
+    z-index: 2;
+}
+nav div{
+    display: flex;
+    align-items: center;
+}
+#logo{
+    height: 60px;
+}
+#logo span{
+    text-decoration: underline overline 2px orange;
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+#nmiddle{
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#nmiddle > div:last-child{
+    outline: black solid 1px;
+    flex-basis: 100%;
+    padding: 8px 10px;
+    margin-left: 20px;
+    border-radius: 15px;
+    height: 1em;
+}
+#nmiddle > div:last-child > input{
+    display: flex;
+    border: none;
+    flex-basis: 100%;
+    font-size: 15px;
+    padding: 2px 10px;
+}
+#nmiddle > div:last-child > input:focus{
+    outline: none;
+}
+#nmiddle > div:last-child > img{
+    height: 100%;
+}
+
+#burger{
+    height: 0.9em;
+    width: 1em;
+    overflow: hidden;
+    position: relative;
+}
+#burger + span{
+    padding: 0 5px;;
+}
+.stick{
+    width: 120%;
+    height: 11%;
+    border-radius: 5px;
+    background-color: black;
+    position: absolute;
+    left: -10%;
+    transition: 0.2s;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.stick:nth-child(1){
+    top: 0;
+}
+.stick:nth-child(4){
+    bottom: 0;
+}
+#menutoggle{
+    display: none;
+}
+#menubtn{
+    display: flex;
+    align-items: center;
+    background-color: orange;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 15px;
+    user-select: none;
+}
+#menutoggle:checked + #menubtn #burger > .stick:nth-child(2){
+    transform: rotate(45deg);
+}
+#menutoggle:checked + #menubtn #burger > .stick:nth-child(3){
+    transform: rotate(-45deg);
+}
+#menutoggle:checked + #menubtn #burger > .stick:nth-child(1){
+    opacity: 0;
+}
+#menutoggle:checked + #menubtn #burger > .stick:nth-child(4){
+    opacity: 0;
+}
+#menutoggle:checked ~ #menu{
+    visibility: visible;
+    opacity: 1;
+}
+#links figure{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: 0.2s;
+    color: black;
+}
+#links figcaption{
+    display: block;
+    text-align: center;
+}
+#links figure:hover{
+    opacity: 0.7;
+}
+#links a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+#links figure img{
+    height: 24px;
+}
+#menu{
+    z-index: 1;
+    transition: 0.2s;
+    position: fixed;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    top: 70px;
+    left: 10%;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    box-shadow: 0px 12px 15px #00000026;
+    border-top: 1px solid #00000016;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#menu > div:first-child{
+    font-size: 18px;
+    font-weight: bold;
+    flex-basis: 12em;
+    border-right: 1px solid black;
+}
+#menu > div:first-child > ul{
+    list-style: none;
+}
+#menu > div:first-child > ul > li{
+    padding: 10px 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    user-select: none;
+}
+#menu > div:first-child > ul > li:hover{
+    background-color: #00000026;
+}
+#menu > div:last-child{
+    flex-basis: 100%;
+}
+.imgrow{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    margin: 0 auto;
+}
+.imgrow img{
+    width: 100%;
+    margin: 20px 0;
+}
+.sofas{
+    display: flex;
+    width: 100%;
+    padding: 50px 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.sofas img{
+    max-width: 350px;
+    box-shadow: 3px 3px 15px #0000001f;
+}
+footer{
+    color: white;
+    background-color: black;
+}
+dd:nth-child(odd){
+    background-color:aquamarine;
+}
+@media screen and (max-width: 900px){
+    body > *{
+        width: 100%;
+        padding: 0;
+    }
+    header{
+        padding-top: 70px;
+    }
+    nav{
+        width: 95%;
+        padding: 5px 2.5%;
+    }
+}
+@media screen and (max-width: 780px){
+    header{
+        padding-top: 112px;
+    }
+    .imgrow{
+        flex-basis: 45%;
+    }
+    nav{
+        flex-wrap: wrap;
+    }
+    #menu{
+        top:112px;
+    }
+    #logo{
+        order: 1;
+    }
+    #links{
+        order: 2;
+    }
+    #nmiddle{
+        order: 3;
+    }
+}
+@media screen and (max-width: 400px){
+    header{
+        padding-top: 128.4px;
+        flex-direction: column;
+        padding-bottom: 50px;
+    }
+    .imgrow{
+        width: 90%;
+    }
+    #logo{
+        height: 40px;
+    }
+    #logo span{
+        font-size: 16px;
+    }
+    #nmiddle{
+        flex-wrap: wrap;
+    }
+    #nmiddle > div:last-child{
+        margin: 0;
+        padding: 6px 8px;
+    }
+    #nmiddle > *{
+        margin: 5px 0;
+    }
+    #menubtn{
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    #menubtn span{
+        display: none;
+    }
+    #menu{
+        top:133.2px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+@media screen and (max-width: 350px){
+    #logo{
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    #links{
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    .sofas img{
+        width: 100%;
+    }
+}
